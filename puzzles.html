@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background-color: green; */
+        background: content-box radial-gradient(#00f1f1,#008080);
+        /* background-repeat: no-repeat;  */
+        /* background-size: cover; */
+        /* width: 1140px; */
+        /* background-image: url(img/b1.webp) width; */
+
+        /* background-repeat: no-repeat; */
+
+        
+        /* font-size: 90x; */
+      }
+
+      /* .container {} */
+
+      .first {
+        width: 400px;
+        /* border: solid 1px black; */
+        margin: auto;
+        height: 400x;
+        /* display: flex; */
+      }
+
+      input {
+        height: 120px;
+        width: 120px;
+        margin: 5px 5px;
+        border: 2px solid ridge;
+        font-size: 110px;
+        /* color:wheat;
+            text-shadow:
+            1px 3px 5px #ff2d55
+            0 0 10px #ff2d55
+            0 0 20px #ff2d55
+            0 0 40px #ff0033; */
+        color: white;
+
+        text-shadow: 1px 1px 2px rgb(4, 0, 255), 0 0 0.1em rgb(255, 255, 255),
+          0 0 0.1em rgb(255, 255, 255);
+        background-color: gray;
+
+        /* background-image: linear-gradient(0deg, #FFDEE9 0%, #B5FFFC 100%); */
+      }
+      h1 {
+        text-align: center;
+        text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
+          0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc,
+          0 10px 0 #ccc, 0 11px 0 #ccc, 0 12px 0 #ccc,
+          0 20px 30px rgba(0, 0, 0, 0.5);
+        /* text-align: start; */
+        /* margin: 0;
+        margin-top: 0; */
+        color:rgb(50, 57, 63);
+        font-size: 8em;
+
+        font-family: Arial, Helvetica, sans-serif;
+      }
+     
+    </style>
+    <div class="container">
+      
+        <h1>PUZZAL</h1>
+
+        <div class="first">
+          <input type="button" value="1" id="btn1" onclick="enter('btn1')" />
+          <input type="button" value="2" id="btn2" onclick="enter('btn2')" />
+          <input type="button" value="3" id="btn3" onclick="enter('btn3')" />
+          <input type="button" value="4" id="btn4" onclick="enter('btn4')" />
+          <input type="button" value="5" id="btn5" onclick="enter('btn5')" />
+          <input type="button" value="6" id="btn6" onclick="enter('btn6')" />
+          <input type="button" value="7" id="btn7" onclick="enter('btn7')" />
+          <input type="button" value="8" id="btn8" onclick="enter('btn8')" />
+          <input
+            type="button"
+            class="empty"
+            value=""
+            id="btn9"
+            onclick="enter('btn9')"
+          />
+        </div>
+    
+    </div>
+    <script>
+     function enter(id) 
+     {
+    col = document.getElementsByClassName("empty");
+    idvar = document.getElementById(id);
+    console.log("idvar first" + idvar);
+    idval = idvar.value;
+    // console.log("idval sec" + idval);
+    if (
+      col[0].getAttribute("id") == "btn9" && (id == "btn6" || id == "btn8")
+    ) {
+      changeval(col);
+    } else if (
+      col[0].getAttribute("id") == "btn8" && (id == "btn7" || id == "btn5" || id == "btn9")
+    ) {
+      changeval(col);
+    } else if (
+      col[0].getAttribute("id") == "btn7" &&  (id == "btn4" || id == "btn8")
+    ) {
+      changeval(col);
+    } else if (
+      col[0].getAttribute("id") == "btn6" &&(id == "btn3" || id == "btn5" || id == "btn9")
+    ) {
+      changeval(col);
+    } else if (
+      col[0].getAttribute("id") == "btn5" &&(id == "btn2" || id == "btn4" || id == "btn6" || id == "btn8")
+    ) {
+      changeval(col);
+    } else if (
+      col[0].getAttribute("id") == "btn4" &&(id == "btn1" || id == "btn5" || id == "btn7")
+    ) {
+      changeval(col);
+    } else if (
+      col[0].getAttribute("id") == "btn3" &&(id == "btn2" || id == "btn6")
+    ) {
+      changeval(col);
+    } else if (
+      col[0].getAttribute("id") == "btn2" && (id == "btn1" || id == "btn5" || id == "btn3")
+    ) {
+      changeval(col);
+    } else if (
+      col[0].getAttribute("id") == "btn1" && (id == "btn4" || id == "btn2")
+    ) {
+      changeval(col);
+    }
+  }
+
+  function changeval(col) {
+    idvar.value = ""; 
+
+    col[0].value = idval; 
+    
+    col[0].classList.remove("empty");
+
+    idvar.classList.add("empty"); 
+  }
+    </script>
+  </body>
+</html>
